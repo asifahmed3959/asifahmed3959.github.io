@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Ahmed - Full Stack Developer & ML Engineer</title>
+    <title>Asif Ahmed - Senior Full Stack Engineer & ML Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -354,6 +354,136 @@
 
         .btn-secondary::before {
             background: var(--text-dim);
+        }
+
+        /* What I Do Section */
+        .what-i-do-section {
+            padding: 6rem 0;
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+
+        .what-i-do-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .what-i-do-card {
+            background: rgba(0, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 2.5rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .what-i-do-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .what-i-do-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 
+                0 10px 40px rgba(0, 255, 255, 0.3),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .what-i-do-card:hover::before {
+            opacity: 1;
+        }
+
+        .what-i-do-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .what-i-do-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .what-i-do-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            padding: 6rem 0;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .approach-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            background: rgba(0, 255, 159, 0.03);
+            border: 1px solid rgba(0, 255, 159, 0.3);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 50px rgba(0, 255, 159, 0.3);
+        }
+
+        .pillar-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .pillar-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .pillar-card p {
+            color: var(--text-dim);
+            line-height: 1.7;
         }
 
         /* Skills Section */
@@ -826,6 +956,368 @@
             opacity: 0.3;
         }
 
+        /* Chatbot Styles */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 2px solid var(--primary);
+            color: var(--darker);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+            transition: all 0.3s;
+            animation: chatbotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes chatbotPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    inset 0 0 20px rgba(0, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 0 50px rgba(0, 255, 255, 0.8),
+                    inset 0 0 30px rgba(0, 255, 255, 0.4);
+            }
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 255, 0.8),
+                inset 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .chatbot-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border: 2px solid var(--darker);
+            animation: badgeBounce 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes badgeBounce {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            width: 400px;
+            height: 600px;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 1rem;
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            box-shadow: 
+                0 0 50px rgba(0, 255, 255, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.05);
+            overflow: hidden;
+            animation: chatbotSlideIn 0.3s ease-out;
+        }
+
+        @keyframes chatbotSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chatbot-container.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 159, 0.1) 100%);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: avatarSpin 10s linear infinite;
+        }
+
+        @keyframes avatarSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .chatbot-title h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .chatbot-status {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .chatbot-close {
+            margin-left: auto;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            animation: messageSlideIn 0.3s ease-out;
+        }
+
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .user-message {
+            flex-direction: row-reverse;
+        }
+
+        .user-message .message-avatar {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+        }
+
+        .message-content {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            max-width: 70%;
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.05);
+        }
+
+        .user-message .message-content {
+            background: rgba(0, 255, 159, 0.05);
+            border-color: rgba(0, 255, 159, 0.2);
+        }
+
+        .message-content p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .quick-reply {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .quick-reply:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .chatbot-input-container {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--primary);
+            display: flex;
+            gap: 0.75rem;
+            background: rgba(0, 255, 255, 0.02);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: var(--text);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .chatbot-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            border-radius: 0.5rem;
+            color: var(--darker);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.5rem 0;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: typingDot 1.4s ease-in-out infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive chatbot */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: calc(100vw - 2rem);
+                height: calc(100vh - 8rem);
+                right: 1rem;
+                bottom: 5rem;
+            }
+
+            .chatbot-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .project-card {
@@ -879,21 +1371,26 @@
         <header>
             <div class="logo">&lt;/ASIF&gt;</div>
             <nav>
+                <a href="#what-i-do">What I Do</a>
+                <a href="#approach">My Approach</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#stats">Stats</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
 
         <section class="hero">
-            <div class="hero-label">Full Stack Developer & ML Engineer • Vancouver, BC 🇨🇦</div>
-            <h1>ASIF AHMED</h1>
-            <h2>Building Intelligent Systems</h2>
+            <div class="hero-label">Senior Full Stack Engineer • Vancouver, BC 🇨🇦</div>
+            <h1>Hi, I'm Asif Ahmed 👋</h1>
+            <h2>Building Intelligent Systems That Matter</h2>
             <p>
-                Vancouver-based developer specializing in machine learning, web development, and backend systems. 
-                I create innovative solutions that bridge the gap between data science and production-ready applications, 
-                inspired by the intersection of nature and technology in the Pacific Northwest.
+                I'm a Senior Full Stack Engineer based in Vancouver, BC, 
+                with 6+ years of experience building systems that matter—from PCI-compliant payment gateways processing 50,000 
+                concurrent users to high-throughput streaming services and intelligent ERP platforms. 
+                I thrive on the challenging problems that keep other developers up at night. 
+                Whether it's architecting secure microservices with event-driven design, 
+                optimizing ETL pipelines for 95% efficiency gains, or refactoring legacy systems into clean, 
+                maintainable code, I approach every challenge with technical precision and a drive for breakthrough solutions.
             </p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn">View My Work</a>
@@ -901,65 +1398,148 @@
             </div>
         </section>
 
+        <!-- What I Do Section -->
+        <section id="what-i-do" class="what-i-do-section reveal">
+            <h2 class="section-title">What I Do</h2>
+            <p class="section-subtitle">Building scalable, secure systems across the full stack</p>
+            
+            <div class="what-i-do-grid">
+                <div class="what-i-do-card">
+                    <div class="what-i-do-icon">🔐</div>
+                    <h3>Secure Payment Systems</h3>
+                    <p>
+                        PCI DSS v4 compliant payment gateways handling 50,000+ concurrent users with asymmetric encryption, 
+                        integrated with PaySafe and Moneris for both hosted and non-hosted payment solutions.
+                    </p>
+                </div>
+
+                <div class="what-i-do-card">
+                    <div class="what-i-do-icon">⚡</div>
+                    <h3>High-Performance APIs</h3>
+                    <p>
+                        RESTful and gRPC microservices architected with event-driven design using RabbitMQ, Redis, 
+                        and ElasticSearch, optimized for thousands of concurrent requests.
+                    </p>
+                </div>
+
+                <div class="what-i-do-card">
+                    <div class="what-i-do-icon">🤖</div>
+                    <h3>AI/ML Integration</h3>
+                    <p>
+                        Deep learning models for healthcare diagnosis, intelligent recommendation systems, 
+                        and generative AI applications using TensorFlow, PyTorch, and custom neural networks.
+                    </p>
+                </div>
+
+                <div class="what-i-do-card">
+                    <div class="what-i-do-icon">🚀</div>
+                    <h3>Enterprise Solutions</h3>
+                    <p>
+                        Fleet management platforms with real-time IoT tracking, ERP systems automating business processes, 
+                        and streaming technologies with fault-tolerant microservice architecture.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Approach Section -->
+        <section id="approach" class="approach-section reveal">
+            <h2 class="section-title">My Approach</h2>
+            <p class="section-subtitle">Great software is built on three fundamental pillars</p>
+            
+            <div class="approach-pillars">
+                <div class="pillar-card">
+                    <div class="pillar-number">01</div>
+                    <h3>Clean Architecture</h3>
+                    <p>
+                        I believe in writing code that's not just functional, but maintainable and elegant. 
+                        Every system I build is architected with SOLID principles, clean separation of concerns, 
+                        and comprehensive testing to ensure long-term reliability.
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">02</div>
+                    <h3>Long-Term Thinking</h3>
+                    <p>
+                        I don't just solve today's problems—I architect solutions that scale and adapt to tomorrow's challenges. 
+                        Whether it's optimizing for performance, planning for growth, or building in flexibility, 
+                        I always consider the bigger picture.
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">03</div>
+                    <h3>Strong Collaboration</h3>
+                    <p>
+                        The best solutions emerge from diverse perspectives. I thrive in environments where I can learn from others, 
+                        share knowledge, and work together to tackle complex challenges. As a former Lead TA managing 4 assistants, 
+                        I understand the value of mentorship and teamwork.
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; color: var(--text-dim); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                <p>
+                    Currently, I'm exploring the intersection of full-stack development and artificial intelligence, 
+                    leveraging my Master's in AI from the University of Ottawa to build smarter, more intuitive systems 
+                    that push the boundaries of what's possible.
+                </p>
+            </div>
+        </section>
+
         <section id="skills" class="skills-section reveal">
             <h2 class="section-title">Technical Arsenal</h2>
-            <p class="section-subtitle">Diverse skill set across multiple domains of software development</p>
+            <p class="section-subtitle">Diverse skill set spanning full-stack development, AI/ML, and enterprise systems</p>
             
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon">🤖</div>
-                    <h3>Machine Learning</h3>
-                    <p>Deep learning, neural networks, and AI model development</p>
-                    <div class="skill-tags">
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">Scikit-learn</span>
-                        <span class="tag">GANs</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Web Development</h3>
-                    <p>Modern web applications with React and Node.js</p>
+                    <div class="skill-icon">💻</div>
+                    <h3>Frontend Development</h3>
+                    <p>Modern, responsive web applications with cutting-edge frameworks</p>
                     <div class="skill-tags">
                         <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
+                        <span class="tag">Blazor</span>
                         <span class="tag">TypeScript</span>
                         <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
 
                 <div class="skill-card">
                     <div class="skill-icon">⚙️</div>
                     <h3>Backend Development</h3>
-                    <p>Scalable APIs and microservices architecture</p>
+                    <p>Scalable APIs and microservices with enterprise-grade reliability</p>
                     <div class="skill-tags">
+                        <span class="tag">C#/.NET</span>
                         <span class="tag">Django</span>
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">gRPC</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>Data & Databases</h3>
-                    <p>Data engineering and database management</p>
-                    <div class="skill-tags">
-                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Go</span>
                         <span class="tag">Python</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">SQL</span>
                     </div>
                 </div>
 
                 <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>DevOps & Tools</h3>
-                    <p>Cloud deployment and version control</p>
+                    <div class="skill-icon">🤖</div>
+                    <h3>Machine Learning & AI</h3>
+                    <p>Deep learning, neural networks, and intelligent systems</p>
                     <div class="skill-tags">
-                        <span class="tag">Git</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">GANs</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Infrastructure automation and cloud-native deployments</p>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
                         <span class="tag">Docker</span>
                         <span class="tag">CI/CD</span>
                         <span class="tag">Linux</span>
@@ -967,14 +1547,28 @@
                 </div>
 
                 <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <h3>Data Science</h3>
-                    <p>Statistical analysis and data visualization</p>
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Databases & Data</h3>
+                    <p>SQL, NoSQL, and data engineering for high-performance systems</p>
                     <div class="skill-tags">
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">Jupyter</span>
-                        <span class="tag">NLTK</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">NoSQL</span>
+                        <span class="tag">ETL</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Architecture & APIs</h3>
+                    <p>Microservices, event-driven systems, and API design</p>
+                    <div class="skill-tags">
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">gRPC</span>
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag">Microservices</span>
+                        <span class="tag">OAuth 2.0</span>
                     </div>
                 </div>
             </div>
@@ -988,15 +1582,45 @@
                 <div class="project-card">
                     <div class="project-content">
                         <div class="project-number">01</div>
+                        <h3>Parkinson's Disease Detection with Deep Learning</h3>
+                        <p>
+                            Advanced deep neural network for detecting Parkinson's Disease with explainable AI using Layer-wise Relevance Propagation (LRP). 
+                            This project combines cutting-edge medical diagnostics with transparent AI decision-making to help clinicians understand model predictions.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Healthcare AI</span>
+                            <span class="tag">Explainable AI</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/asifahmed3959/parkinsons_disease_with_deep_learning" class="project-link" target="_blank">
+                                View on GitHub →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <div class="stat-card">
+                            <div class="stat-number">ML</div>
+                            <div class="stat-label">Healthcare AI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-number">02</div>
                         <h3>Book Recommender System</h3>
                         <p>
-                            Built a sophisticated recommendation engine from scratch using collaborative filtering and content-based approaches. 
-                            Implements advanced ML algorithms to provide personalized book suggestions.
+                            Sophisticated recommendation engine built from scratch using collaborative filtering and sentiment analysis. 
+                            Implements advanced ML algorithms including KNN, Co-Clustering, and SVD to provide personalized book suggestions 
+                            based on both ratings and user sentiment.
                         </p>
                         <div class="skill-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Machine Learning</span>
                             <span class="tag">Recommender Systems</span>
+                            <span class="tag">NLP</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/asifahmed3959/Book-Recommender-System-from-Scratch" class="project-link" target="_blank">
@@ -1007,14 +1631,14 @@
                     <div class="project-meta">
                         <div class="stat-card">
                             <div class="stat-number">ML</div>
-                            <div class="stat-label">Category</div>
+                            <div class="stat-label">Data Science</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-content">
-                        <div class="project-number">02</div>
+                        <div class="project-number">03</div>
                         <h3>GAN with Fashion-MNIST</h3>
                         <p>
                             Developed a Generative Adversarial Network to generate realistic fashion item images. 
@@ -1044,12 +1668,14 @@
                         <div class="project-number">03</div>
                         <h3>Heart Disease Classification</h3>
                         <p>
-                            Comprehensive medical diagnosis system using multiple ML and DL algorithms. 
-                            Compares various classification models to predict heart disease with high accuracy.
+                            Comprehensive medical diagnosis system comparing multiple ML and DL algorithms for heart disease prediction. 
+                            Features neural networks, K-Nearest Neighbor, Decision Trees, and ensemble methods to achieve high accuracy 
+                            in cardiovascular risk assessment.
                         </p>
                         <div class="skill-tags">
                             <span class="tag">Healthcare ML</span>
                             <span class="tag">Classification</span>
+                            <span class="tag">Neural Networks</span>
                             <span class="tag">Data Analysis</span>
                         </div>
                         <div class="project-links">
@@ -1060,8 +1686,8 @@
                     </div>
                     <div class="project-meta">
                         <div class="stat-card">
-                            <div class="stat-number">ML</div>
-                            <div class="stat-label">Category</div>
+                            <div class="stat-number">AI</div>
+                            <div class="stat-label">Medical Tech</div>
                         </div>
                     </div>
                 </div>
@@ -1069,10 +1695,40 @@
                 <div class="project-card">
                     <div class="project-content">
                         <div class="project-number">04</div>
+                        <h3>GAN with Fashion-MNIST</h3>
+                        <p>
+                            Generative Adversarial Network that creates realistic fashion item images. 
+                            Explores deep learning architectures and adversarial training techniques to generate synthetic fashion data, 
+                            demonstrating expertise in cutting-edge computer vision and generative AI.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">GANs</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/asifahmed3959/GAAN-Project-with-Fashion-MNIST-Dataset" class="project-link" target="_blank">
+                                View on GitHub →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <div class="stat-card">
+                            <div class="stat-number">AI</div>
+                            <div class="stat-label">Generative AI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-number">05</div>
                         <h3>BookStore Application</h3>
                         <p>
-                            Full-featured bookstore application built with C# and .NET. 
-                            Implements comprehensive book management system with modern architecture patterns and best practices.
+                            Full-featured enterprise bookstore application built with C# and .NET. 
+                            Implements comprehensive book management with CRUD operations, modern architecture patterns, 
+                            and best practices including dependency injection, repository pattern, and clean code principles.
                         </p>
                         <div class="skill-tags">
                             <span class="tag">C#</span>
@@ -1088,15 +1744,15 @@
                     </div>
                     <div class="project-meta">
                         <div class="stat-card">
-                            <div class="stat-number">C#</div>
-                            <div class="stat-label">Category</div>
+                            <div class="stat-number">Web</div>
+                            <div class="stat-label">Enterprise</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-content">
-                        <div class="project-number">05</div>
+                        <div class="project-number">06</div>
                         <h3>Django REST Framework Service</h3>
                         <p>
                             Quote-sharing platform built with Django REST Framework. 
@@ -1126,13 +1782,15 @@
                         <div class="project-number">06</div>
                         <h3>gRPC with Node.js</h3>
                         <p>
-                            Exploring modern RPC frameworks with Node.js. 
-                            Implements SSL credentials, OAuth 2.0 authentication, and efficient service communication.
+                            Modern RPC framework implementation with Node.js featuring SSL credentials, OAuth 2.0 authentication, 
+                            and efficient service-to-service communication. Demonstrates expertise in microservices architecture 
+                            and secure inter-service protocols.
                         </p>
                         <div class="skill-tags">
                             <span class="tag">gRPC</span>
                             <span class="tag">Node.js</span>
                             <span class="tag">OAuth 2.0</span>
+                            <span class="tag">Microservices</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/asifahmed3959/nodeGRPCCREDENTIAL" class="project-link" target="_blank">
@@ -1143,7 +1801,7 @@
                     <div class="project-meta">
                         <div class="stat-card">
                             <div class="stat-number">API</div>
-                            <div class="stat-label">Category</div>
+                            <div class="stat-label">Security</div>
                         </div>
                     </div>
                 </div>
@@ -1154,31 +1812,31 @@
             <h2 class="section-title">By The Numbers</h2>
             <div class="stats-grid">
                 <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
                     <div class="stat-number">54+</div>
-                    <div class="stat-label">Repositories</div>
+                    <div class="stat-label">GitHub Repos</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Technologies</div>
+                    <div class="stat-number">50K</div>
+                    <div class="stat-label">Concurrent Users</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">ML/AI</div>
-                    <div class="stat-label">Specialty</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">Full Stack</div>
-                    <div class="stat-label">Capabilities</div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">ETL Efficiency</div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section reveal">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Let's Build Something Exceptional</h2>
             <p>
                 Interested in collaboration or have a project in mind? 
                 Feel free to reach out through any of these channels.
             </p>
-            <a href="https://github.com/asifahmed3959" class="btn">Get In Touch</a>
+            <a href="mailto:asifahmed3959@gmail.com" class="btn">Get In Touch</a>
             
             <div class="social-links">
                 <a href="https://github.com/asifahmed3959" class="social-link" target="_blank" title="GitHub">
@@ -1186,7 +1844,12 @@
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                 </a>
-                <a href="mailto:your.email@example.com" class="social-link" title="Email">
+                <a href="https://www.linkedin.com/in/asifahmed3959/" class="social-link" target="_blank" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="mailto:asifahmed3959@gmail.com" class="social-link" title="Email">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
@@ -1196,11 +1859,53 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 Asif Ahmed • Crafted in Vancouver, BC 🏔️ • Built with passion and precision.</p>
+            <p>&copy; 2025 Asif Ahmed • Crafted with passion in Vancouver, BC 🏔️</p>
         </footer>
     </div>
 
-    <script>
+    <!-- Chatbot Interface -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-avatar">🤖</div>
+            <div class="chatbot-title">
+                <h3>Portfolio Assistant</h3>
+                <p class="chatbot-status">Online</p>
+            </div>
+            <button id="chatbot-close" class="chatbot-close">×</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>Hi! I'm Asif's AI assistant. I can tell you about his projects, skills, and experience. What would you like to know?</p>
+                    <div class="quick-replies">
+                        <button class="quick-reply" data-message="Tell me about the Parkinson's Disease project">Parkinson's AI</button>
+                        <button class="quick-reply" data-message="What are Asif's main skills?">Skills</button>
+                        <button class="quick-reply" data-message="Tell me about his experience">Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input-container">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me anything...">
+            <button id="chatbot-send" class="chatbot-send">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg>
+        <span class="chatbot-badge">!</span>
+    </button>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Cursor glow effect
         const cursorGlow = document.getElementById('cursorGlow');
         document.addEventListener('mousemove', (e) => {
@@ -1244,6 +1949,412 @@
         if ('ontouchstart' in window) {
             cursorGlow.style.display = 'none';
         }
+
+        // Chatbot functionality
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotBadge = document.querySelector('.chatbot-badge');
+
+        // Auto-open chatbot on page load
+        setTimeout(() => {
+            chatbotContainer.classList.add('active');
+            chatbotBadge.style.display = 'none';
+        }, 1500);
+
+        // Knowledge base about Asif's projects and skills
+        const knowledgeBase = {
+            projects: {
+                'parkinsons': {
+                    name: 'Parkinson\'s Disease Detection with Deep Learning',
+                    description: 'Advanced deep neural network for detecting Parkinson\'s Disease with explainable AI using Layer-wise Relevance Propagation (LRP). Combines cutting-edge medical diagnostics with transparent AI decision-making.',
+                    tech: ['Deep Learning', 'Healthcare AI', 'Explainable AI', 'Python', 'Neural Networks'],
+                    link: 'https://github.com/asifahmed3959/parkinsons_disease_with_deep_learning'
+                },
+                'book recommender': {
+                    name: 'Book Recommender System',
+                    description: 'A sophisticated recommendation engine built from scratch using collaborative filtering and content-based approaches. It uses advanced machine learning algorithms to provide personalized book suggestions based on user preferences and reading history.',
+                    tech: ['Python', 'Machine Learning', 'Recommender Systems', 'Data Science'],
+                    link: 'https://github.com/asifahmed3959/Book-Recommender-System-from-Scratch'
+                },
+                'gan': {
+                    name: 'GAN with Fashion-MNIST',
+                    description: 'A Generative Adversarial Network that generates realistic fashion item images. This project explores deep learning architectures and adversarial training techniques to create synthetic fashion data.',
+                    tech: ['Deep Learning', 'GANs', 'Computer Vision', 'TensorFlow'],
+                    link: 'https://github.com/asifahmed3959/GAAN-Project-with-Fashion-MNIST-Dataset'
+                },
+                'heart disease': {
+                    name: 'Heart Disease Classification',
+                    description: 'A comprehensive medical diagnosis system using multiple ML and DL algorithms. Compares various classification models including Random Forest, SVM, and Neural Networks to predict heart disease with high accuracy.',
+                    tech: ['Healthcare ML', 'Classification', 'Data Analysis', 'Neural Networks'],
+                    link: 'https://github.com/asifahmed3959/Heart-Disease-Classification-Using-Various-Machine-Learning-and-Deep-Learning'
+                },
+                'bookstore': {
+                    name: 'BookStore Application',
+                    description: 'Full-featured bookstore application built with C# and .NET. Implements comprehensive book management with CRUD operations, modern architecture patterns, and best practices for enterprise applications.',
+                    tech: ['C#', '.NET', 'ASP.NET', 'Backend Development'],
+                    link: 'https://github.com/asifahmed3959/BookStoreApp'
+                },
+                'django': {
+                    name: 'Django REST Framework Service',
+                    description: 'A quote-sharing platform built with Django REST Framework. Features authentication, authorization, comprehensive API endpoints, and follows RESTful principles.',
+                    tech: ['Django', 'Python', 'REST Framework', 'API Development'],
+                    link: 'https://github.com/asifahmed3959/A-Django-REst-Framework-Project-for-practice'
+                },
+                'grpc': {
+                    name: 'gRPC with Node.js',
+                    description: 'Modern RPC framework implementation with Node.js. Features SSL credentials, OAuth 2.0 authentication, and efficient service-to-service communication.',
+                    tech: ['gRPC', 'Node.js', 'OAuth 2.0', 'Microservices'],
+                    link: 'https://github.com/asifahmed3959/nodeGRPCCREDENTIAL'
+                }
+            },
+            experience: {
+                'bell': {
+                    company: 'Bell/Distributel',
+                    role: 'Full Stack Software Developer',
+                    period: 'August 2023 - April 2025',
+                    highlights: [
+                        'Developed PCI-compliant payment gateway handling 50,000 concurrent users',
+                        'Architected 7 microservices with event-driven design using RabbitMQ and Redis',
+                        'Integrated with PaySafe, Moneris, HubSpot, and Equifax',
+                        'Ensured data privacy and protection with asymmetric encryption'
+                    ]
+                },
+                'skyit': {
+                    company: 'Skyit Services GBCS',
+                    role: 'Software Developer',
+                    period: 'October 2021 - August 2022',
+                    highlights: [
+                        'Built ETL pipeline with 95% effective data collection',
+                        'Developed ERP system increasing revenue by 40%',
+                        'Optimized queries resulting in 40% efficiency increase',
+                        'Automated product pricing and stock management'
+                    ]
+                },
+                'apploye': {
+                    company: 'Apploye Inc',
+                    role: 'Software Engineer',
+                    period: 'January 2019 - August 2021',
+                    highlights: [
+                        'Led backend team for complete SDLC of Apploye 2.0',
+                        'Reduced regression bugs by 45% with automated testing',
+                        'Integrated 17 third-party software platforms',
+                        'Refactored legacy code increasing SDLC efficiency by 80%'
+                    ]
+                }
+            },
+            skills: {
+                'frontend': 'Expert in React, Blazor, TypeScript, and modern JavaScript frameworks for building responsive web applications.',
+                'backend': 'Strong backend development with C#/.NET, Django, Node.js, Java, Go, and Python. Experienced in RESTful APIs, gRPC, and microservices.',
+                'ml': 'Deep learning expertise with TensorFlow, PyTorch, and Scikit-learn. Built GANs, neural networks, and healthcare AI systems.',
+                'cloud': 'Cloud infrastructure with AWS and Azure, Docker containerization, CI/CD pipelines, and Linux administration.',
+                'databases': 'SQL and NoSQL databases including PostgreSQL, MySQL, Redis. ETL pipeline development and data engineering.',
+                'architecture': 'Microservices architecture, event-driven systems with RabbitMQ, API design, and OAuth 2.0 security.'
+            },
+            general: {
+                'location': 'Vancouver, BC, Canada',
+                'about': 'Asif Ahmed is a Senior Full Stack Engineer with 6+ years of experience building secure payment gateways, high-throughput streaming services, and AI-powered systems. Master\'s degree in AI from University of Ottawa.',
+                'github': 'https://github.com/asifahmed3959',
+                'linkedin': 'https://www.linkedin.com/in/asifahmed3959/',
+                'email': 'asifahmed3959@gmail.com'
+            }
+        };
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.add('active');
+            chatbotBadge.style.display = 'none';
+            chatbotInput.focus();
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+        });
+
+        // Quick reply buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quick-reply')) {
+                const message = e.target.getAttribute('data-message');
+                sendMessage(message);
+            }
+        });
+
+        // Send message
+        chatbotSend.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                chatbotInput.value = '';
+            }
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    sendMessage(message);
+                    chatbotInput.value = '';
+                }
+            }
+        });
+
+        function sendMessage(message) {
+            // Add user message
+            addMessage(message, 'user');
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Simulate bot response delay
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = generateResponse(message);
+                addMessage(response.text, 'bot', response.quickReplies);
+            }, 1000);
+        }
+
+        function addMessage(text, sender, quickReplies = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = 'message-avatar';
+            avatarDiv.textContent = sender === 'bot' ? '🤖' : '👤';
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+
+            const textP = document.createElement('p');
+            textP.textContent = text;
+            contentDiv.appendChild(textP);
+
+            if (quickReplies && quickReplies.length > 0) {
+                const repliesDiv = document.createElement('div');
+                repliesDiv.className = 'quick-replies';
+                quickReplies.forEach(reply => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quick-reply';
+                    btn.setAttribute('data-message', reply.message);
+                    btn.textContent = reply.label;
+                    repliesDiv.appendChild(btn);
+                });
+                contentDiv.appendChild(repliesDiv);
+            }
+
+            messageDiv.appendChild(avatarDiv);
+            messageDiv.appendChild(contentDiv);
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing-indicator-message';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            chatbotMessages.appendChild(typingDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.querySelector('.typing-indicator-message');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function generateResponse(message) {
+            const lowerMessage = message.toLowerCase();
+
+            // Parkinson's project
+            if (lowerMessage.includes('parkinson')) {
+                const project = knowledgeBase.projects['parkinsons'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. GitHub: ${project.link}`,
+                    quickReplies: [
+                        { label: 'Other ML Projects', message: 'Tell me about machine learning projects' },
+                        { label: 'His Experience', message: 'What is his work experience?' }
+                    ]
+                };
+            }
+
+            // Check for project-related queries
+            if (lowerMessage.includes('machine learning') || lowerMessage.includes('ml project')) {
+                return {
+                    text: `Asif has impressive ML projects: Parkinson's Disease Detection with explainable AI, Book Recommender System with collaborative filtering, Heart Disease Classification with multiple algorithms, and a GAN for fashion image generation. Which interests you?`,
+                    quickReplies: [
+                        { label: 'Parkinson\'s AI', message: 'Tell me about Parkinson\'s Disease project' },
+                        { label: 'Recommender', message: 'Tell me about book recommender' },
+                        { label: 'Heart Disease', message: 'Tell me about heart disease project' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('book recommender') || lowerMessage.includes('recommendation')) {
+                const project = knowledgeBase.projects['book recommender'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. Check it out: ${project.link}`,
+                    quickReplies: [
+                        { label: 'Other ML Projects', message: 'Tell me about other ML projects' },
+                        { label: 'Web Projects', message: 'What about web development projects?' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('gan') || lowerMessage.includes('fashion')) {
+                const project = knowledgeBase.projects['gan'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. View on GitHub: ${project.link}`,
+                    quickReplies: [
+                        { label: 'More ML Work', message: 'Tell me about other ML projects' },
+                        { label: 'Backend Projects', message: 'What backend projects has he done?' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('heart') || lowerMessage.includes('disease') || lowerMessage.includes('medical')) {
+                const project = knowledgeBase.projects['heart disease'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. GitHub: ${project.link}`,
+                    quickReplies: [
+                        { label: 'BookStore App', message: 'Tell me about the BookStore application' },
+                        { label: 'Skills Overview', message: 'What are his main skills?' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('bookstore') || lowerMessage.includes('c#') || lowerMessage.includes('.net')) {
+                const project = knowledgeBase.projects['bookstore'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. Check it out: ${project.link}`,
+                    quickReplies: [
+                        { label: 'Django Project', message: 'Tell me about the Django project' },
+                        { label: 'All Skills', message: 'What technologies does he know?' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('django') || lowerMessage.includes('rest') || lowerMessage.includes('api')) {
+                const project = knowledgeBase.projects['django'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. View on GitHub: ${project.link}`,
+                    quickReplies: [
+                        { label: 'gRPC Project', message: 'Tell me about the gRPC project' },
+                        { label: 'Backend Skills', message: 'What backend technologies does he use?' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('grpc') || lowerMessage.includes('node')) {
+                const project = knowledgeBase.projects['grpc'];
+                return {
+                    text: `${project.name}: ${project.description} Technologies: ${project.tech.join(', ')}. GitHub: ${project.link}`,
+                    quickReplies: [
+                        { label: 'All Projects', message: 'Show me all projects' },
+                        { label: 'Contact Info', message: 'How can I contact Asif?' }
+                    ]
+                };
+            }
+
+            // Experience queries
+            if (lowerMessage.includes('experience') || lowerMessage.includes('work') || lowerMessage.includes('job')) {
+                return {
+                    text: `Asif has 6+ years of experience across 3 companies. At Bell/Distributel, he built a PCI-compliant payment gateway for 50K concurrent users. At Skyit, he developed ETL pipelines with 95% efficiency. At Apploye, he led the backend team and reduced bugs by 45%. Which company interests you?`,
+                    quickReplies: [
+                        { label: 'Bell Experience', message: 'Tell me about Bell' },
+                        { label: 'Skyit Experience', message: 'Tell me about Skyit' },
+                        { label: 'View Projects', message: 'Show me his projects' }
+                    ]
+                };
+            }
+
+            // Bell experience
+            if (lowerMessage.includes('bell') || lowerMessage.includes('distributel') || lowerMessage.includes('payment')) {
+                const exp = knowledgeBase.experience['bell'];
+                return {
+                    text: `At ${exp.company} (${exp.period}), Asif: ${exp.highlights.join('; ')}. This demonstrates his expertise in secure, scalable payment systems.`,
+                    quickReplies: [
+                        { label: 'Other Experience', message: 'Tell me about his other jobs' },
+                        { label: 'Technical Skills', message: 'What are his skills?' }
+                    ]
+                };
+            }
+
+            // Skills queries
+            if (lowerMessage.includes('skill') || lowerMessage.includes('technolog')) {
+                return {
+                    text: `Asif's expertise spans: Frontend (React, Blazor), Backend (C#/.NET, Django, Node.js), ML/AI (TensorFlow, PyTorch, Deep Learning), Cloud (AWS, Azure, Docker), and Databases (PostgreSQL, Redis). What area interests you?`,
+                    quickReplies: [
+                        { label: 'ML Skills', message: 'Tell me about ML skills' },
+                        { label: 'Backend Skills', message: 'What backend technologies?' },
+                        { label: 'Cloud Skills', message: 'Tell me about cloud experience' }
+                    ]
+                };
+            }
+
+            // ML skills
+            if (lowerMessage.includes('ml skill') || lowerMessage.includes('ai skill') || lowerMessage.includes('deep learning')) {
+                return {
+                    text: `${knowledgeBase.skills['ml']} He's built healthcare AI systems, GANs, and recommender engines.`,
+                    quickReplies: [
+                        { label: 'View ML Projects', message: 'Show me ML projects' },
+                        { label: 'Other Skills', message: 'What other skills does he have?' }
+                    ]
+                };
+            }
+
+            // Backend skills
+            if (lowerMessage.includes('backend') || lowerMessage.includes('api')) {
+                return {
+                    text: `${knowledgeBase.skills['backend']} ${knowledgeBase.skills['architecture']}`,
+                    quickReplies: [
+                        { label: 'View Backend Projects', message: 'Show me backend projects' },
+                        { label: 'Experience', message: 'Tell me about his experience' }
+                    ]
+                };
+            }
+
+            // Contact
+            if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach')) {
+                return {
+                    text: `You can reach Asif at: Email: ${knowledgeBase.general.email}, GitHub: ${knowledgeBase.general.github}, LinkedIn: ${knowledgeBase.general.linkedin}`,
+                    quickReplies: [
+                        { label: 'View Projects', message: 'Show me his projects' },
+                        { label: 'Learn More', message: 'Tell me about Asif' }
+                    ]
+                };
+            }
+
+            if (lowerMessage.includes('about') || lowerMessage.includes('who')) {
+                return {
+                    text: `${knowledgeBase.general.about} He's based in ${knowledgeBase.general.location}. Want to know about specific projects or skills?`,
+                    quickReplies: [
+                        { label: 'View Projects', message: 'Show me the projects' },
+                        { label: 'Skills', message: 'What are his skills?' },
+                        { label: 'Experience', message: 'Tell me about his work' }
+                    ]
+                };
+            }
+
+            // Default response
+            return {
+                text: `I can tell you about Asif's projects (ML, AI, backend), his 6+ years of experience at Bell, Skyit, and Apploye, his skills in full-stack development and AI, or how to contact him. What would you like to know?`,
+                quickReplies: [
+                    { label: 'Projects', message: 'Show me his projects' },
+                    { label: 'Experience', message: 'What is his work experience?' },
+                    { label: 'Skills', message: 'What are his skills?' }
+                ]
+            };
+        }
     </script>
-</body>
-</html>
